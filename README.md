@@ -1,11 +1,11 @@
 # Music Playlist App
-A **Django** app to add songs liked by you on **YouTube** to a **Spotify** **|** **Apple Music** playlist. 🎧 
+A **Django** app to automatically add songs liked by you on **YouTube** to a **Spotify** **|** **Apple Music** playlist. 🎧 
 
 ## Configuration Required
 
   * Go to `songs/spotify.py`. Add your **Spotify Oauth Token** to the `spotify_token` variable and **Spotify user_id** to the `spotify_user_id` variable. To get **user_id** click [here](https://www.spotify.com/us/account/overview/). To get **Oauth Token** click [here](https://developer.spotify.com/console/post-playlists/).
   * Go to `songs/apple_music.py`. Add your **Apple music token** to the `apple_music_token` variable.
-  * Go to `client_secrets.json`. Replace the complete contents of the file with the contents of your `client_secrets.json` file that you can download after enabling **Oauth for YouTube** from [here](https://developers.google.com/youtube/v3/getting-started/).
+  * Go to `songs/client_secret.json`. Replace the complete contents of the file with the contents of your `client_secret.json` file that you can download after enabling **Oauth for YouTube** from [here](https://developers.google.com/youtube/v3/getting-started/).
 
 
 ## Requirements
