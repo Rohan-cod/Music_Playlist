@@ -8,7 +8,6 @@ import requests
 import youtube_dl
 
 apple_music_token = ""
-apple_music_user_id = ""
 
 class A_ToPlaylist():
     def __init__(self):
@@ -48,11 +47,11 @@ class A_ToPlaylist():
                     "youtube_url": youtube_url,
                     "song_name": song_name,
                     "artist": artist,
-                    "apple_music_uri": self.get_apple_music_uri(song_name, artist)
+                    "apple_music_id": self.get_apple_music_id(song_name)
 
                 }
 
-    def get_playlist(self):
+    def get_playlist(self, playlist_name):
         query = f'https://api.music.apple.com/v1/me/library/playlists'
         response = requests.get(
             query,
@@ -70,12 +69,13 @@ class A_ToPlaylist():
 
     def create_playlist(self, playlist_name, description):
         request_body = json.dumps({
-            "name": playlist_name,
-            "description": description,
-            "public": True
+            "attributes":{
+                "name": playlist_name,
+                "description": description
+            }
         })
 
-        query = f''
+        query = f'https://api.music.apple.com/v1/me/library/playlists'
         response = requests.post(
             query,
             data=request_body,
@@ -88,7 +88,7 @@ class A_ToPlaylist():
         return response_json["id"]
 
     def get_all_playlist(self):
-        query = f''
+        query = f'https://api.music.apple.com/v1/me/library/playlists'
         response = requests.get(
             query,
             headers={
@@ -98,13 +98,13 @@ class A_ToPlaylist():
         )
         all_playlists = []
         response_json = response.json()
-        for playlist in response_json["items"]:
-            all_playlists.append(playlist["name"])
+        for playlist in response_json["data"]:
+            all_playlists.append(playlist["attributes"]["name"])
 
         return all_playlists
 
-    def get_apple_music_uri(self, song_name, artist):
-        query = f''
+    def get_apple_music_id(self, song_name):
+        query = f'https://api.music.apple.com/v1/catalog/in/songs'
         response = requests.get(
             query,
             headers={
@@ -113,17 +113,19 @@ class A_ToPlaylist():
             }
         )
         response_json = response.json()
-        songs = response_json["tracks"]["items"]
-        uri = songs[0]["uri"]
-
-        return uri
+        songs = response_json["data"]
+        for song in songs:
+            if song["attributes"]["name"] == song_name:
+                id_ = song["attributes"]["playparams"]["id"]
+        
+        return id_
 
     def add_song_to_playlist(self, playlist_name):
         self.get_liked_videos()
-        uris = [info["spotify_uri"]
+        ids = [info["apple_music_id"]
                 for song, info in self.all_song_info.items()]
         playlist_id = self.get_playlist(playlist_name)
-        q = f''
+        q = f'https://api.music.apple.com/v1/me/library/playlists/{playlist_id}'
         res = requests.get(
             q,
             headers={
@@ -131,17 +133,17 @@ class A_ToPlaylist():
                 "Authorization": f'Bearer {apple_music_token}'
             })
         res_json = res.json()
-        tracks = res_json["tracks"]
+        tracks = res_json["relationships"]["tracks"]
         for track in tracks:
-            t = track["track"]
-            urri = t["uri"]
-            if urri in uris:
-                uris.remove(urri)
+            t = track["librarysong"]
+            _id = t["attributes"]["playparams"]["id"]
+            if _id in ids:
+                ids.remove(_id)
 
 
-        request_data = json.dumps(uris)
+        request_data = json.dumps(ids)
 
-        query = f''
+        query = f'https://api.music.apple.com/v1/me/library/playlists/{playlist_id}/tracks'
 
         response = requests.post(
             query,
