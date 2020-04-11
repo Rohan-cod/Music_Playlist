@@ -1,0 +1,18 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[dev-packages]
+
+[packages]
+django = "==2.2.10"
+google-auth-oauthlib = "*"
+google-api-python-client = "*"
+youtube-dl = "*"
+exception = "*"
+schedule = "*"
+gunicorn = "==19.9.0"
+
+[requires]
+python_version = "3.7"

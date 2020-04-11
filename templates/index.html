@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock title %}
+
+{% block content %}
+<div class="jumbotron">
+  <h1 class="display-4">Music Playlist App</h1>
+  <p class="lead">A Django app to convert YouTube liked videos to spotify | apple music playlist.</p>
+  <p class="lead">
+    <a href="{% url 'spotify' %}"
+    role="button"><i class="fa fa-spotify"></i></a> &nbsp;|&nbsp; <a href="{% url 'apple_music' %}"
+    role="button"><i class="fa fa-apple"></i></a>
+  </p>
+</div>
+{% endblock content %}

@@ -1,0 +1,88 @@
+{% extends "base.html" %}
+
+{% block content %} 
+<h3><i class="fa fa-apple"></i> Playlists</h3>
+
+<div class="row">
+
+  {# icon and search-box #}
+  <div class="col-6 align-left">
+    <i id="search-icon" class="fa fa-search"></i>
+    <input id="user-input" placeholder="Search for playlist">
+  </div>
+  <br>
+  {# news-list section #}
+  <div id="replaceable-content" class="col-6">
+    {% include 'all_apple_music_playlist-results-partial.html' %}
+  </div>
+
+</div>
+
+<style type="text/css">
+  @keyframes blinker {
+      from {opacity: 1.0;}
+      to {opacity: 0.0;}
+    }
+    
+  .blink {
+      text-decoration: blink;
+      animation-name: blinker;
+      animation-duration: 0.6s;
+      animation-iteration-count:infinite;
+      animation-timing-function:ease-in-out;
+      animation-direction: alternate;
+    }
+</style>
+{% endblock %}
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"\ integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4\
+    YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/\
+    JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js" async="async"></script>
+
+<script>
+      const user_input = $('#user-input');
+      const search_icon = $('#search-icon');
+      const apple_music_div = $('#replaceable-content');
+      const endpoint = '/search_apple_music/'
+      const delay_by_in_ms = 700
+      let scheduled_function = false
+
+      let ajax_call = function (endpoint, request_parameters) {
+          $.getJSON(endpoint, request_parameters)
+              .done(response => {
+                  
+                  apple_music_div.fadeTo('slow', 0).promise().then(() => {
+                      
+                      apple_music_div.html(response['html_from_view'])
+                      
+                      apple_music_div.fadeTo('slow', 1)
+                      
+                      search_icon.removeClass('blink')
+                  })
+              })
+      }
+
+
+      user_input.on('keyup', function () {
+
+          const request_parameters = {
+              q: $(this).val() 
+          }
+
+          
+          search_icon.addClass('blink')
+
+          
+          if (scheduled_function) {
+              clearTimeout(scheduled_function)
+          }
+
+          
+          scheduled_function = setTimeout(ajax_call, delay_by_in_ms, endpoint, request_parameters)
+      })
+    </script>

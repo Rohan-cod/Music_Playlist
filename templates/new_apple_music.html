@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>New Playlist for <i class="fa fa-apple"></i></h1>
+    <form method="post" enctype="multipart/form-data">
+    	{% csrf_token %}
+    	{{ form.as_p }}
+    	<button class="btn btn-success ml-2" type="submit">Add Playlist</button>
+    	
+    </form>
+{% endblock content %}

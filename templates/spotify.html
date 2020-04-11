@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Add Songs to <i class="fa fa-spotify"></i></h1>
+    <form method="post" enctype="multipart/form-data">
+    	{% csrf_token %}
+    	{{ form.as_p }}
+    	<button class="btn btn-success ml-2" type="submit">Add Songs</button>
+    </form>
+    <br>
+    <p><a href="{% url 'new_spotify' %}"
+    role="button">+ Add Playlist</a> &nbsp;|&nbsp; <a href="{% url 'spotify_playlist' %}"
+    role="button">All Playlists</a></p>
+{% endblock content %}

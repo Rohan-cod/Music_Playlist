@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block title %}All Playlists Spotify{% endblock title %}
+
+{% block content %}
+  <h1>Music Playlist App</h1>
+  <hr>
+  <br>
+  <h2>All Playlists <i class="fa fa-spotify"></i> &nbsp;|&nbsp; <a href="{% url 'search_spotify' %}"><i class="fa fa-search"></i></a></h2>
+
+  {% for playlist in object_list %}
+    <div class="card">
+      <div class="card-header">
+        <span class="font-weight-bold">{{ playlist.pla_name }}</span>
+      </div> 
+    </div>
+    <br />
+
+    
+  {% endfor %}
+
+  {% if is_paginated %}
+    <nav aria-label="Page navigation conatiner"></nav>
+    <ul class="pagination justify-content-center">
+      {% if page_obj.has_previous %}
+      <li><a href="?page={{ page_obj.previous_page_number }}" class="page-link">&laquo; PREV </a></li>
+      {% endif %}
+      {% if page_obj.has_next %}
+      <li><a href="?page={{ page_obj.next_page_number }}" class="page-link"> NEXT &raquo;</a></li>
+
+      {% endif %}
+    </ul>
+    </nav>
+  {% endif %}
+  
+{% endblock content %}
