@@ -43,3 +43,10 @@ Feel free to raise a issue or make a pull request to fix a bug or add a new feat
 To get started, the first step is to meet the community. We use slack to communicate, and there the helpful community will guide you. Slack is an instant messaging service used by developers and users of GitHub. It uses chatrooms, where developers can join in and can talk about a particular topic. [Click here](https://join.slack.com/t/codingninjas-talk/shared_invite/enQtODI1ODM0NTIzNzMwLTk3ZjMwMDExNWFlMTMyZDdjMjYzOWMzNjFmYzY5YjYyYjYzMmJiNDEyZmZlM2ExMDU0MGUzYzRiMTMyZGFiNDI) to join our Slack Workspace.
 ## Code of Conduct
 Check code of conduct [here](https://github.com/shubhdeeprajput/Music_Playlist/blob/master/CODE_OF_CONDUCT.md)
+
+## Communities for extenxive bussiness
+Artists
+Developers
+Advertising
+Investors
+Vendors
