@@ -44,9 +44,14 @@ To get started, the first step is to meet the community. We use slack to communi
 ## Code of Conduct
 Check code of conduct [here](https://github.com/shubhdeeprajput/Music_Playlist/blob/master/CODE_OF_CONDUCT.md)
 
+
 ## Communities for extenxive bussiness
 Artists
 Developers
 Advertising
 Investors
 Vendors
+
+## User Interface
+Available in many different languages
+
