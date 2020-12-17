@@ -7,6 +7,33 @@ A **Django** app to automatically add songs liked by you on **YouTube** to a **S
   * Go to `songs/apple_music.py`. Add your **Apple music token** to the `apple_music_token` variable.
   * Go to `songs/client_secret.json`. Replace the complete contents of the file with the contents of your `client_secret.json` file that you can download after enabling **Oauth for YouTube** from [here](https://developers.google.com/youtube/v3/getting-started/).
 
+## Steps to get the Oauth Token from Spotify
+  * Login to your [Spotify account](https://www.spotify.com/us/account/overview/) and get your username.
+  * The username will be your Spotify user_id.
+  * Now, get the [Oauth token](https://developer.spotify.com/console/post-playlists/) by entering your user_id and then click Get Token.
+  * In the scope options, select the required scopes.
+  * It will generate a Spotify token and note that this **token expires** every once in a while. So, if you face any issue with accessing your Spotify Playlist, it may be because
+  your token might have expired. In that case, create a new token by repeating the above process.
+ 
+
+## Steps to get the Oauth for Youtube
+  * Login to the [Google Cloud Platform](https://console.developers.google.com/)
+  * Create a new project by entering your project name.
+  * Now enable the the api (**YouTube Data API v3**) by selecting the "ENABLE APIS AND SERVICES" option.
+  * After enabling the api, crete your credentials by clicking the "Credentials" in the sidebar.
+  * Now press the "+ CREATE CREDENTIALS" option and then **select the OAuth Client ID**
+  * Click on "CONFIGURE CONSENT SCREEN" and it redirect to OAuth consent screen.
+  * Select the External option in the User type and then proceed.
+  * Now, fill out the required fields and proceed forward. (Note: In the scopes section go through all the options and select the ones you think will be necessary)
+  * In the Test Users section, add your email address and then save and continue.
+  * Now, head back to the Credentials section in the sidebar and create the OAuth client ID.
+  * Select the application type to be "**Web application**".
+  * Now, in the "Authorized redirect URIs" add your local url of the django app. (It may look like "http://127.0.0.1:8000/")
+  * After entering all the details, save it and then an OAuth client ID will be created.
+  * Now download the **json file** by clicking on the download symbol next to your client ID.
+  * Copy the contents of the json file and paste it inside the client_secret.json file in your projects folder.
+
+**Note that in the above method, it is mentioned that the app is a web application, so for it work the app needs to deployed first. So, use heroku to deploy the app in the web.**
 
 ## Requirements
 
@@ -55,3 +82,5 @@ Vendors
 ## User Interface
 Available in many different languages
 
+## Resources
+For deploying app using Heroku : [Heroku Tutorial](https://youtu.be/6DI_7Zja8Zc)
