@@ -63,7 +63,7 @@ A **Django** app to automatically add songs liked by you on **YouTube** to a **S
 
 ## Contributing
 
-Feel free to raise a issue or make a pull request to fix a bug or add a new feature. If you are new to open source you can first read about git by [clicking here](https://www.codecademy.com/learn/learn-git).
+If you are new to open source you can first read about git by [clicking here](https://www.codecademy.com/learn/learn-git).
 
 ## Communtiy Slack Channel
 
