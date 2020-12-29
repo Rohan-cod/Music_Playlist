@@ -67,7 +67,7 @@ If you are new to open source you can first read about git by [clicking here](ht
 
 ## Communtiy Slack Channel
 
-To get started, the first step is to meet the community. We use slack to communicate, and there the helpful community will guide you. Slack is an instant messaging service used by developers and users of GitHub. It uses chatrooms, where developers can join in and can talk about a particular topic. [Click here](https://join.slack.com/t/codingninjas-talk/shared_invite/enQtODI1ODM0NTIzNzMwLTk3ZjMwMDExNWFlMTMyZDdjMjYzOWMzNjFmYzY5YjYyYjYzMmJiNDEyZmZlM2ExMDU0MGUzYzRiMTMyZGFiNDI) to join our Slack Workspace.
+To get started, the first step is to meet the community. We use slack to communicate, and there the helpful community will guide you. Slack is an instant messaging service used by developers and users of GitHub. It uses chatrooms, where developers can join in and can talk about a particular topic. [Click here](https://join.slack.com/t/codingninjas-talk/shared_invite/zt-k9sm2slj-1HEXKlxHBbxwviX5JvaCWw) to join our Slack Workspace.
 ## Code of Conduct
 Check code of conduct [here](https://github.com/shubhdeeprajput/Music_Playlist/blob/master/CODE_OF_CONDUCT.md)
 
