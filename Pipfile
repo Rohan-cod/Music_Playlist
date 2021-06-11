@@ -6,7 +6,7 @@ verify_ssl = true
 [dev-packages]
 
 [packages]
-django = "==2.2.21"
+django = "==2.2.24"
 google-auth-oauthlib = "*"
 google-api-python-client = "*"
 youtube-dl = "*"
