@@ -1,5 +1,5 @@
 # Music Playlist App
-A **Django** app to automatically add songs liked by you on **YouTube** to a **Spotify** **|** **Apple Music** playlist. 🎧 
+A Web Application maade using the **Django** framework to automatically add songs liked by you on **YouTube** to a **Spotify** **|** **Apple Music** playlist. 🎧 
 
 ## Configuration Required
 
@@ -78,9 +78,3 @@ Developers
 Advertising
 Investors
 Vendors
-
-## User Interface
-Available in many different languages
-
-## Resources
-For deploying app using Heroku : [Heroku Tutorial](https://youtu.be/6DI_7Zja8Zc)
