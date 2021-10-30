@@ -37,7 +37,7 @@ A Web Application maade using the **Django** framework to automatically add song
 
 ## Requirements
 
-  * Python 3.7  
+  * Python 3.8  
   * Django 2.2.10
   * [Youtube Data API v3](https://developers.google.com/youtube/v3)
   * [Spotify Web API](https://developer.spotify.com/documentation/web-api/)
